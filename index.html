@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos Proposal ― Studio 0様 LP制作のご提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F7F1F4;
+    --bg-alt: #FCFAFB;
+    --plum: #5C3B50;
+    --plum-deep: #362131;
+    --rose: #C48A9A;
+    --rose-soft: #E9D3D9;
+    --gold: #BE9A5C;
+    --ink: #362131;
+    --ink-soft: #6E5B67;
+    --line: #E3D2D9;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.9;
+    overflow-x: hidden;
+  }
+  h1,h2,h3{
+    font-family: 'Shippori Mincho', serif;
+    color: var(--plum-deep);
+    font-weight: 700;
+  }
+  .en{
+    font-family: 'Cormorant Garamond', serif;
+  }
+  a{ color: inherit; text-decoration:none; }
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 6vw;
+  }
+
+  /* ===== 装飾ブロブ ===== */
+  .blob{
+    position:absolute;
+    border-radius:50%;
+    filter: blur(2px);
+    pointer-events:none;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height: 100vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(196,138,154,0.35), transparent 45%),
+      radial-gradient(circle at 10% 85%, rgba(190,154,92,0.25), transparent 50%),
+      linear-gradient(150deg, #F9F2F5 0%, #F3E9EE 55%, #EFE2E9 100%);
+  }
+  .hero .blob1{
+    width: 420px; height:420px;
+    top: -140px; right: -120px;
+    background: radial-gradient(circle at 30% 30%, #E9D3D9, transparent 70%);
+    opacity:.9;
+  }
+  .hero .blob2{
+    width: 300px; height:300px;
+    bottom: -80px; left: -60px;
+    background: radial-gradient(circle at 60% 40%, #DCC79A, transparent 70%);
+    opacity:.6;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    padding: 140px 6vw 100px;
+    width:100%;
+  }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    color: var(--plum);
+    border: 1px solid var(--rose);
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.5);
+    margin-bottom: 34px;
+  }
+  .badge::before{
+    content:"";
+    width:6px; height:6px;
+    border-radius:50%;
+    background: var(--gold);
+    display:inline-block;
+  }
+  .hero h1{
+    font-size: clamp(32px, 5.4vw, 58px);
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+    max-width: 780px;
+  }
+  .hero h1 span{
+    color: var(--rose);
+    font-style: italic;
+  }
+  .hero .lead{
+    margin-top: 30px;
+    max-width: 560px;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  .hero .from{
+    margin-top: 56px;
+    display:flex;
+    align-items:center;
+    gap: 18px;
+  }
+  .hero .from .line{
+    width: 46px; height:1px;
+    background: var(--gold);
+  }
+  .hero .from p{
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+  }
+  .hero .from strong{
+    display:block;
+    font-family:'Shippori Mincho', serif;
+    color: var(--plum-deep);
+    font-size: 15px;
+    letter-spacing: 0.1em;
+  }
+  .scroll-cue{
+    position:absolute;
+    bottom: 34px;
+    left: 6vw;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--ink-soft);
+    writing-mode: vertical-rl;
+  }
+
+  /* ===== section common ===== */
+  section{
+    position:relative;
+    padding: 110px 0;
+  }
+  .sec-head{
+    margin-bottom: 64px;
+  }
+  .sec-head .tag{
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    display:block;
+    margin-bottom: 16px;
+  }
+  .sec-head h2{
+    font-size: clamp(24px, 3.4vw, 34px);
+    letter-spacing: 0.04em;
+  }
+  .sec-head .sub{
+    margin-top: 18px;
+    color: var(--ink-soft);
+    font-size: 14px;
+    max-width: 620px;
+  }
+
+  /* ===== 理解セクション ===== */
+  .understand{
+    background: var(--bg-alt);
+  }
+  .u-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 46px;
+  }
+  .u-quote{
+    position:relative;
+    padding: 36px 40px;
+    background: linear-gradient(160deg, #4A2E42, #2E1C29);
+    color: #F3E7EC;
+    border-radius: 26px 26px 26px 4px;
+    font-family:'Shippori Mincho', serif;
+    font-size: 19px;
+    line-height: 2;
+    letter-spacing: 0.02em;
+  }
+  .u-quote::before{
+    content:"“";
+    font-family:'Cormorant Garamond', serif;
+    position:absolute;
+    top: -10px; left: 20px;
+    font-size: 90px;
+    color: rgba(255,255,255,0.15);
+  }
+  .u-list{
+    display:flex;
+    flex-direction:column;
+    gap: 22px;
+  }
+  .u-item{
+    display:flex;
+    gap: 18px;
+    align-items:flex-start;
+  }
+  .u-item .num{
+    font-family:'Cormorant Garamond', serif;
+    font-size: 26px;
+    color: var(--rose);
+    min-width: 40px;
+  }
+  .u-item p{
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .u-item strong{
+    display:block;
+    font-family:'Shippori Mincho', serif;
+    color: var(--plum-deep);
+    font-size: 15px;
+    margin-bottom: 6px;
+    font-weight:700;
+  }
+
+  /* ===== 価値セクション ===== */
+  .values{
+    background:
+      radial-gradient(circle at 90% 10%, rgba(190,154,92,0.10), transparent 40%),
+      var(--bg);
+  }
+  .v-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .v-card{
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 34px 28px;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .v-card::after{
+    content:"";
+    position:absolute;
+    width: 120px; height:120px;
+    right: -40px; bottom: -40px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(196,138,154,0.18), transparent 70%);
+  }
+  .v-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(90,60,80,0.12);
+    border-color: var(--rose);
+  }
+  .v-card .mark{
+    font-family:'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+    display:block;
+  }
+  .v-card h3{
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+  .v-card p{
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+
+  /* ===== スケジュール ===== */
+  .flow{
+    background: var(--bg-alt);
+  }
+  .timeline{
+    position:relative;
+    padding-left: 30px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left: 6px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: linear-gradient(var(--rose), var(--gold));
+  }
+  .t-item{
+    position:relative;
+    padding-bottom: 52px;
+  }
+  .t-item:last-child{ padding-bottom: 0; }
+  .t-item::before{
+    content:"";
+    position:absolute;
+    left: -30px; top: 4px;
+    width: 13px; height:13px;
+    border-radius:50%;
+    background: var(--bg-alt);
+    border: 2px solid var(--gold);
+  }
+  .t-item .week{
+    font-family:'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+  .t-item h3{
+    font-size: 17px;
+    margin: 8px 0 10px;
+  }
+  .t-item p{
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    max-width: 560px;
+  }
+
+  /* ===== クロージング ===== */
+  .closing{
+    background: linear-gradient(155deg, #3A2333 0%, #2A1A26 60%, #241621 100%);
+    color: #F4E9EE;
+    text-align:center;
+    overflow:hidden;
+    position:relative;
+  }
+  .closing .blob{
+    width: 500px; height:500px;
+    top: -220px; left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(196,138,154,0.25), transparent 70%);
+  }
+  .closing-inner{
+    position:relative;
+    z-index:2;
+  }
+  .closing .tag{
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    display:block;
+    margin-bottom: 22px;
+  }
+  .closing h2{
+    color: #FAF3F6;
+    font-size: clamp(24px, 4vw, 36px);
+    line-height: 1.7;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .closing .sub{
+    margin: 26px auto 46px;
+    max-width: 520px;
+    font-size: 14px;
+    color: #D9C4CE;
+  }
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap: 14px;
+    padding: 18px 44px;
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    color: #FAF3F6;
+    background: rgba(190,154,92,0.12);
+    transition: background .3s ease, transform .3s ease;
+  }
+  .cta:hover{
+    background: rgba(190,154,92,0.28);
+    transform: translateY(-3px);
+  }
+  .note-box{
+    margin-top: 60px;
+    padding: 24px 30px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 16px;
+    max-width: 620px;
+    margin-left:auto; margin-right:auto;
+    font-size: 12.5px;
+    color: #C7B2BE;
+    text-align:left;
+  }
+  footer{
+    padding: 34px 0;
+    text-align:center;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--ink-soft);
+    background: var(--bg-alt);
+  }
+
+  @media (max-width: 860px){
+    .u-grid{ grid-template-columns: 1fr; }
+    .v-grid{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px){
+    section{ padding: 76px 0; }
+    .hero-inner{ padding-top: 110px; }
+    .v-grid{ grid-template-columns: 1fr; }
+    .scroll-cue{ display:none; }
+    .u-quote{ font-size: 16px; padding: 28px 26px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="hero-inner wrap">
+    <span class="badge">KAIROS ── WEB PRODUCTION PROPOSAL</span>
+    <h1>25万円という決断に、<br>迷いを残さない一本を。<br><span class="en">for Studio 0</span></h1>
+    <p class="lead">
+      スマートフォンの小さな画面の向こうで、彼女は静かに悩んでいます。
+      「本当に申し込んでいいのだろうか」――その迷いを、上品さと信頼感で
+      そっと後押しするLPを、Kairosがご一緒に形にします。
+    </p>
+    <div class="from">
+      <div class="line"></div>
+      <p>ご提案者<strong>Kairos ／ Web制作・システム開発チーム</strong></p>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</section>
+
+<section class="understand">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">UNDERSTANDING</span>
+      <h2>ご相談内容を、私たちはこう読み解きました。</h2>
+      <p class="sub">構成・原稿の整理やクライアント対応はStudio 0様が担われるとのこと。だからこそ私たちは、その意図を正確に汲み取り「かたち」に落とし込む実装パートナーでありたいと考えています。</p>
+    </div>
+    <div class="u-grid">
+      <div class="u-quote">
+        20〜30代女性が、25万円前後のサービスに<br>
+        自ら申し込む決断をする。<br>
+        その瞬間を作るのは、価格ではなく“空気感”。
+      </div>
+      <div class="u-list">
+        <div class="u-item">
+          <span class="num en">01</span>
+          <p><strong>高単価ゆえの「信頼の設計」</strong>安価な商材とは違う説得の順番・余白・色数が必要と理解しています。</p>
+        </div>
+        <div class="u-item">
+          <span class="num en">02</span>
+          <p><strong>スマホでの体感がすべて</strong>指の動き・視線誘導・タップ後の安心感まで含めて設計します。</p>
+        </div>
+        <div class="u-item">
+          <span class="num en">03</span>
+          <p><strong>3週間という制作期間</strong>デザイン・実装・計測設定を並走させ、手戻りの少ない進行を組みます。</p>
+        </div>
+        <div class="u-item">
+          <span class="num en">04</span>
+          <p><strong>納品後の運用まで見据える</strong>クライアント様が迷わず更新できるよう、操作面のケアもセットでご用意します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">WHAT WE PROVIDE</span>
+      <h2>Kairosがご一緒できること</h2>
+      <p class="sub">デザインから実装、計測設定、引き渡し後の運用まで。ワンストップで、かつ丁寧な手触りを大切にします。</p>
+    </div>
+    <div class="v-grid">
+      <div class="v-card">
+        <span class="mark en">Design</span>
+        <h3>女性向け高単価LPの設計思想</h3>
+        <p>スクール・コーチング・美容系などの制作実績をもとに、柔らかさと上品さを両立する配色・余白・タイポグラフィを設計します。</p>
+      </div>
+      <div class="v-card">
+        <span class="mark en">Mobile</span>
+        <h3>スマホ体験を主役にした実装</h3>
+        <p>閲覧の大半を占めるスマホでの読了率・タップ率を意識したレスポンシブ設計。崩れのない表示を細部まで検証します。</p>
+      </div>
+      <div class="v-card">
+        <span class="mark en">WordPress</span>
+        <h3>デザイン〜実装まで一気通貫</h3>
+        <p>WordPressへの実装、画像素材の選定・調整まで対応。デザインの意図を落とさずコードへ変換します。</p>
+      </div>
+      <div class="v-card">
+        <span class="mark en">Tracking</span>
+        <h3>GA4／GTM／広告タグの計測設計</h3>
+        <p>コンバージョン計測・各種広告タグの設定に対応。数字で成果を追える状態にして納品します。</p>
+      </div>
+      <div class="v-card">
+        <span class="mark en">Handover</span>
+        <h3>やさしい操作マニュアル</h3>
+        <p>納品後の簡単な更新作業について、専門知識がなくても迷わないマニュアルをご用意します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">SCHEDULE IMAGE</span>
+      <h2>約3週間の進め方</h2>
+      <p class="sub">構成・原稿はStudio 0様側でご準備いただく前提で、下記のような進行を想定しています。</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <span class="week en">WEEK 1</span>
+        <h3>ヒアリング・トンマナ設計</h3>
+        <p>ターゲット像・競合の雰囲気・原稿構成のすり合わせを行い、デザインコンセプトとワイヤーフレームを固めます。</p>
+      </div>
+      <div class="t-item">
+        <span class="week en">WEEK 2</span>
+        <h3>デザイン制作・実装</h3>
+        <p>スマホ表示を軸にデザインを確定し、WordPressへの実装を並行して進めます。画像素材の選定・調整も対応。</p>
+      </div>
+      <div class="t-item">
+        <span class="week en">WEEK 3</span>
+        <h3>計測設定・修正・納品</h3>
+        <p>GA4・GTM・広告タグの設定、表示確認、修正対応を経て、操作マニュアルとともに納品いたします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="blob"></div>
+  <div class="wrap closing-inner">
+    <span class="tag">NEXT ACTION</span>
+    <h2>まずは、私たちの制作実績と<br>体制についてお話しさせてください。</h2>
+    <p class="sub">女性向け・高単価サービスのLP実績、WordPress実装からGA4／GTM設定までの対応範囲、
+      3週間での進行体制について、詳しくご案内できる準備がございます。</p>
+    <a href="#" class="cta">Kairosに相談してみる ／ ポートフォリオを見る</a>
+    <div class="note-box">
+      ※本ご提案はStudio 0様のご相談内容を拝見して作成したものであり、正式なご発注をお約束するものではございません。
+      まずは実績やご対応可否について、気兼ねなくお問い合わせください。今回に限らず、継続的にご相談いただける
+      パートナーとして長くお付き合いできましたら幸いです。
+    </div>
+  </div>
+</section>
+
+<footer>
+  KAIROS ── WEB PRODUCTION &amp; SYSTEM DEVELOPMENT TEAM
+</footer>
+
+</body>
+</html>
